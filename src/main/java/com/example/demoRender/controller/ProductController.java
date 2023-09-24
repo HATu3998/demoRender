@@ -49,9 +49,9 @@ public class ProductController {
 		
 	}
 	
-	@PostMapping("/insertAuto")
+	@GetMapping("/insertAuto")
 	public ResponseEntity<ResponseObject> insertProductAuto(){
-		Product newProduct=new Product("auto",2024,10,"");
+		Product newProduct=new Product("auto",2024,1000,"");
 		List<Product> foundProduct=reposity.findByProductName(newProduct.getProductName().trim());
 		if(foundProduct.size()>0) {
 			return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).body(new ResponseObject("failed","product name already taken", ""));
